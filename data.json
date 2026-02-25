@@ -1,0 +1,369 @@
+{
+  "subjects": {
+    "csharp": {
+      "name": "Learn C#",
+      "topics": [
+        {
+          "id": "intro-csharp",
+          "title": "Introduction to C#",
+          "definition": "C# is a modern, object-oriented programming language developed by Microsoft. It runs on the .NET Framework or .NET Core platform. Visual Studio is the primary IDE for C# development. A C# program has a structure: using System; brings in the System namespace, namespace groups related code, class Program contains the entry point, and static void Main(string[] args) is where execution begins.",
+          "syntax": "using System;\n\nnamespace MyApp\n{\n    class Program\n    {\n        static void Main(string[] args)\n        {\n            // Entry point\n        }\n    }\n}",
+          "example": {
+            "code": "using System;\n\nnamespace HelloWorld\n{\n    class Program\n    {\n        static void Main(string[] args)\n        {\n            Console.WriteLine(\"Hello, World!\");\n        }\n    }\n}",
+            "output": "Hello, World!"
+          }
+        },
+        {
+          "id": "basic-syntax",
+          "title": "Basic Syntax",
+          "definition": "Console.WriteLine(): prints text and moves to the next line.\nConsole.Write(): prints text without a newline.\nConsole.ReadLine(): reads a full line from the user.\nComments: // for single-line, /* ... */ for multi-line.\nVariables: named storage locations with a type (int, double, float, char, string, bool).\nData Types: int (whole numbers), double/float (decimals), char (single character), string (text), bool (true/false).\nType Casting: convert from one type to another (implicit or explicit).\nvar keyword: compiler infers type from the assigned value.\nconst keyword: constant value that cannot be changed after initialization.",
+          "syntax": "Console.WriteLine(\"Hello\");\nConsole.Write(\"No newline \");\nstring input = Console.ReadLine();\n\n// Single line comment\n/* Multi\n   line comment */\n\nint age = 25;        // explicit int\nvar name = \"Ali\";   // inferred string\nconst double PI = 3.14;",
+          "example": {
+            "code": "Console.WriteLine(\"=== Basic IO ===\");\nConsole.Write(\"Enter your name: \");\nstring name = Console.ReadLine();\n\nConsole.Write(\"Enter your age: \");\nstring input = Console.ReadLine();\nint age = int.Parse(input); // type casting string -> int\n\nConsole.WriteLine($\"Hello {name}, you are {age} years old.\");\n\n// Constant and inferred type\nconst int MaxScore = 100;\nvar message = \"C# syntax demo\";\nConsole.WriteLine(message);",
+            "output": "=== Basic IO ===\nEnter your name: Ali\nEnter your age: 22\nHello Ali, you are 22 years old.\nC# syntax demo"
+          }
+        },
+        {
+          "id": "operators",
+          "title": "Operators",
+          "definition": "Arithmetic Operators (+, -, *, /, %): perform basic math (addition, subtraction, multiplication, division, remainder).\nAssignment Operators (=, +=, -=, *=, /=, %=): assign or update the value of a variable.\nComparison Operators (==, !=, >, <, >=, <=): compare two values and return a bool.\nLogical Operators (&&, ||, !): combine or negate boolean expressions.\nIncrement / Decrement (++, --): increase or decrease a numeric value by 1.\nTernary Operator (condition ? expr1 : expr2): short form of if-else that returns one of two values based on a condition.",
+          "syntax": "// Arithmetic\nint a = 10 + 5;   // 15\nint b = 10 - 3;   // 7\nint c = 4 * 2;    // 8\nint d = 10 / 3;   // 3\nint e = 10 % 3;   // 1\n\n// Assignment\na += 5;  // a = a + 5\nb -= 2;  // b = b - 2\n\n// Comparison\nbool isEqual = (a == b);\nbool isGreater = (a > b);\n\n// Logical\nbool bothTrue = (a > 0 && b > 0);\nbool eitherTrue = (a > 0 || b < 0);\nbool notTrue = !bothTrue;\n\n// Increment / Decrement\nint x = 1;\nx++;   // x = 2\nx--;   // x = 1 again\n\n// Ternary\nstring result = (a > b) ? \"a is bigger\" : \"b is bigger or equal\";",
+          "example": {
+            "code": "int x = 10, y = 3;\nConsole.WriteLine(\"Arithmetic:\");\nConsole.WriteLine($\"x + y = {x + y}\");\nConsole.WriteLine($\"x - y = {x - y}\");\nConsole.WriteLine($\"x * y = {x * y}\");\nConsole.WriteLine($\"x / y = {x / y}\");\nConsole.WriteLine($\"x % y = {x % y}\");\n\nConsole.WriteLine(\"\\nComparison & Logical:\");\nbool isEqual = (x == y);\nbool bothPositive = (x > 0 && y > 0);\nConsole.WriteLine($\"x == y ? {isEqual}\");\nConsole.WriteLine($\"x > 0 && y > 0 ? {bothPositive}\");\n\nConsole.WriteLine(\"\\nTernary:\");\nstring grade = x > y ? \"x is greater\" : \"y is greater or equal\";\nConsole.WriteLine(grade);",
+            "output": "Arithmetic:\nx + y = 13\nx - y = 7\nx * y = 30\nx / y = 3\nx % y = 1\n\nComparison & Logical:\nx == y ? False\nx > 0 && y > 0 ? True\n\nTernary:\nx is greater"
+          }
+        },
+        {
+          "id": "conditionals",
+          "title": "Conditional Statements",
+          "definition": "if: run a block when condition is true.\nif-else: run one block when true, another when false.\nelse if: chain multiple conditions in order.\nNested if: place if statement inside another if to check deeper logic.\nswitch: select one case based on a value; cleaner alternative to many else if for fixed options.",
+          "syntax": "// Simple if\nif (score >= 50)\n{\n    Console.WriteLine(\"Pass\");\n}\n\n// if-else\nif (score >= 50)\n    Console.WriteLine(\"Pass\");\nelse\n    Console.WriteLine(\"Fail\");\n\n// else if chain\nif (score >= 80)\n    Console.WriteLine(\"A grade\");\nelse if (score >= 60)\n    Console.WriteLine(\"B grade\");\nelse if (score >= 40)\n    Console.WriteLine(\"C grade\");\nelse\n    Console.WriteLine(\"Fail\");\n\n// switch\nswitch (day)\n{\n    case 1: Console.WriteLine(\"Monday\"); break;\n    case 2: Console.WriteLine(\"Tuesday\"); break;\n    default: Console.WriteLine(\"Other day\"); break;\n}",
+          "example": {
+            "code": "int score = 72;\n\n// if-else-if chain\nif (score >= 80)\n    Console.WriteLine(\"Grade: A\");\nelse if (score >= 60)\n    Console.WriteLine(\"Grade: B\");\nelse if (score >= 40)\n    Console.WriteLine(\"Grade: C\");\nelse\n    Console.WriteLine(\"Grade: F\");\n\nint day = 3;\nConsole.Write(\"Today is: \");\nswitch (day)\n{\n    case 1: Console.WriteLine(\"Monday\"); break;\n    case 2: Console.WriteLine(\"Tuesday\"); break;\n    case 3: Console.WriteLine(\"Wednesday\"); break;\n    default: Console.WriteLine(\"Unknown\"); break;\n}",
+            "output": "Grade: B\nToday is: Wednesday"
+          }
+        },
+        {
+          "id": "loops",
+          "title": "Loops",
+          "definition": "for: best when you know the exact number of iterations (has initializer, condition, increment).\nwhile: repeats as long as the condition is true (may run zero times).\ndo-while: runs the body at least once, then checks the condition.\nforeach: iterates over all elements in a collection or array.\nbreak: exits the nearest loop immediately.\ncontinue: skips the rest of the current iteration and moves to the next.",
+          "syntax": "// for loop\nfor (int i = 0; i < 5; i++)\n{\n    Console.WriteLine(i);\n}\n\n// while loop\nint n = 5;\nwhile (n > 0)\n{\n    Console.WriteLine(n);\n    n--;\n}\n\n// do-while loop\nint x = 0;\ndo\n{\n    Console.WriteLine(x);\n    x++;\n} while (x < 3);\n\n// foreach loop\nstring[] names = { \"Ali\", \"Sara\", \"Ahmed\" };\nforeach (var name in names)\n{\n    Console.WriteLine(name);\n}",
+          "example": {
+            "code": "Console.WriteLine(\"for loop (1 to 3):\");\nfor (int i = 1; i <= 3; i++)\n{\n    Console.WriteLine(i);\n}\n\nConsole.WriteLine(\"\\nwhile loop (countdown 3 to 1):\");\nint n = 3;\nwhile (n > 0)\n{\n    Console.WriteLine(n);\n    n--;\n}\n\nConsole.WriteLine(\"\\nforeach over array:\");\nstring[] languages = { \"C#\", \"Java\", \"Python\" };\nforeach (string lang in languages)\n{\n    if (lang == \"Java\")\n        continue; // skip Java\n    Console.WriteLine(lang);\n}",
+            "output": "for loop (1 to 3):\n1\n2\n3\n\nwhile loop (countdown 3 to 1):\n3\n2\n1\n\nforeach over array:\nC#\nPython"
+          }
+        },
+        {
+          "id": "methods",
+          "title": "Methods (Functions)",
+          "definition": "Methods have syntax: return type, name, parameters. void methods return nothing. Parameters pass data in. Default parameters have default values. Method overloading: same name, different parameters. ref passes by reference, out returns value through parameter.",
+          "syntax": "returnType MethodName( params ) { return value; }\nvoid Greet() { }\n\nint Add(int a, int b = 0) { return a + b; }\n\nvoid Modify(ref int x) { x++; }\nvoid GetValue(out int y) { y = 10; }",
+          "example": {
+            "code": "static int Add(int a, int b) => a + b;\nstatic void Print(string msg) => Console.WriteLine(msg);\n\nint sum = Add(5, 3);\nPrint(\"Sum: \" + sum);",
+            "output": "Sum: 8"
+          }
+        },
+        {
+          "id": "arrays",
+          "title": "Arrays",
+          "definition": "Single dimensional array: int[] arr. Multi-dimensional: int[,] matrix. Jagged array: int[][] - array of arrays. Array properties: Length gives size. Arrays are zero-indexed.",
+          "syntax": "int[] arr = new int[5];\nint[] arr2 = { 1, 2, 3 };\n\nint[,] matrix = new int[2, 3];\nint[][] jagged = new int[2][];\njagged[0] = new int[] { 1, 2 };\n\nint len = arr.Length;",
+          "example": {
+            "code": "int[] nums = { 10, 20, 30, 40 };\nConsole.WriteLine(nums.Length);\nConsole.WriteLine(nums[1]);\n\nforeach (int n in nums)\n    Console.Write(n + \" \");",
+            "output": "4\n20\n10 20 30 40"
+          }
+        },
+        {
+          "id": "strings",
+          "title": "Strings",
+          "definition": "String methods: ToUpper(), ToLower() for case. Trim() removes whitespace. Substring() extracts part. Replace() substitutes text. String interpolation $\"\" embeds variables. StringBuilder is for efficient string building.",
+          "syntax": "string s = \" Hello \";\ns.ToUpper(); s.ToLower(); s.Trim();\ns.Substring(1, 4);\ns.Replace(\"old\", \"new\");\n\nstring name = \"Ali\";\nstring msg = $\"Hello {name}\";\n\nStringBuilder sb = new StringBuilder();\nsb.Append(\"text\");",
+          "example": {
+            "code": "string text = \"  Hello World  \";\nConsole.WriteLine(text.Trim().ToUpper());\nConsole.WriteLine(text.Substring(2, 5));\nstring name = \"Ali\";\nConsole.WriteLine($\"Name: {name}\");",
+            "output": "HELLO WORLD\n Hello\nName: Ali"
+          }
+        },
+        {
+          "id": "oop",
+          "title": "Object-Oriented Programming (OOP)",
+          "definition": "Class is blueprint, Object is instance. Properties encapsulate data with get/set. Constructor initializes object. Destructor cleans up. Encapsulation hides internal state. Abstraction shows only essential. Inheritance: derived class gets base members. Polymorphism: same interface, different behavior. virtual/override for method overriding. sealed prevents inheritance. this refers to current instance.",
+          "syntax": "public class Animal\n{\n    public string Name { get; set; }\n    public Animal() { }\n    public virtual void Speak() { }\n}\npublic class Dog : Animal\n{\n    public override void Speak() { }\n}",
+          "example": {
+            "code": "public class Person\n{\n    public string Name { get; set; }\n    public Person(string n) { Name = n; }\n}\nPerson p = new Person(\"Ali\");\nConsole.WriteLine(p.Name);",
+            "output": "Ali"
+          }
+        },
+        {
+          "id": "collections",
+          "title": "Collections",
+          "definition": "List<T> - dynamic list. Dictionary<TKey,TValue> - key-value pairs. Stack - LIFO. Queue - FIFO. HashSet - unique elements. Collections are in System.Collections.Generic.",
+          "syntax": "List<int> list = new List<int>();\nlist.Add(1);\n\nDictionary<string, int> dict = new Dictionary<string, int>();\ndict[\"a\"] = 1;\n\nStack<int> stack = new Stack<int>();\nQueue<string> queue = new Queue<string>();\nHashSet<int> set = new HashSet<int>();",
+          "example": {
+            "code": "var list = new List<string> { \"A\", \"B\", \"C\" };\nlist.Add(\"D\");\nConsole.WriteLine(list.Count);\n\nvar dict = new Dictionary<string, int>();\ndict[\"x\"] = 10;\nConsole.WriteLine(dict[\"x\"]);",
+            "output": "4\n10"
+          }
+        },
+        {
+          "id": "exceptions",
+          "title": "Exception Handling",
+          "definition": "try block contains risky code. catch handles exceptions. finally always runs. Custom exception: create class inheriting Exception. throw raises exception.",
+          "syntax": "try\n{\n    // risky code\n}\ncatch (Exception ex)\n{\n    // handle\n}\nfinally\n{\n    // cleanup\n}\nthrow new Exception(\"message\");",
+          "example": {
+            "code": "try\n{\n    int x = 10 / 2;\n    Console.WriteLine(x);\n}\ncatch (DivideByZeroException ex)\n{\n    Console.WriteLine(\"Error\");\n}\nfinally\n{\n    Console.WriteLine(\"Done\");\n}",
+            "output": "5\nDone"
+          }
+        },
+        {
+          "id": "advanced",
+          "title": "Advanced Topics",
+          "definition": "Generics: type-safe reusable code with <T>. Interfaces define contract without implementation. Abstract class: base class with abstract members. Dependency Injection: inject dependencies for loose coupling. Entity Framework: ORM for database. ASP.NET MVC: web framework. Web API: RESTful APIs.",
+          "syntax": "public interface IRepository<T>\n{\n    void Add(T item);\n}\n\npublic abstract class BaseService\n{\n    public abstract void DoWork();\n}\n\npublic class MyService<T> where T : class { }",
+          "example": {
+            "code": "public interface IGreet\n{\n    void SayHello();\n}\npublic class Greeter : IGreet\n{\n    public void SayHello() => Console.WriteLine(\"Hello!\");\n}\nIGreet g = new Greeter();\ng.SayHello();",
+            "output": "Hello!"
+          }
+        }
+      ]
+    },
+    "dotnet": {
+      "name": "Learn .NET (ASP.NET Core MVC)",
+      "topics": [
+        {
+          "id": "intro-dotnet",
+          "title": "Introduction to .NET",
+          "definition": ".NET is a cross-platform framework by Microsoft. .NET Core (now .NET 5+) is modern and cross-platform. MVC architecture separates Model, View, Controller. Project structure: Program.cs is entry point, appsettings.json holds configuration.",
+          "syntax": "// Program.cs\nvar builder = WebApplication.CreateBuilder(args);\nbuilder.Services.AddControllersWithViews();\nvar app = builder.Build();\napp.MapControllerRoute(\n    name: \"default\",\n    pattern: \"{controller=Home}/{action=Index}/{id?}\");\napp.Run();",
+          "example": {
+            "code": "// Program.cs\nvar builder = WebApplication.CreateBuilder(args);\nbuilder.Services.AddControllersWithViews();\nvar app = builder.Build();\napp.UseRouting();\napp.MapControllerRoute(\n    name: \"default\",\n    pattern: \"{controller=Home}/{action=Index}/{id?}\");\napp.Run();",
+            "output": "ASP.NET Core MVC app starts"
+          }
+        },
+        {
+          "id": "mvc-basics",
+          "title": "MVC Basics",
+          "definition": "Models represent data and logic. Views display UI (Razor). Controllers handle requests and return Views. Routing maps URLs to controller actions. Layout Page _Layout.cshtml provides shared structure. Razor syntax mixes C# with HTML using @.",
+          "syntax": "// Controller\npublic class HomeController : Controller\n{\n    public IActionResult Index() => View();\n}\n\n// View (Razor)\n@model MyModel\n<h1>@Model.Title</h1>",
+          "example": {
+            "code": "public class HomeController : Controller\n{\n    public IActionResult Index()\n    {\n        ViewBag.Message = \"Welcome\";\n        return View();\n    }\n}",
+            "output": "Returns Index view with ViewBag"
+          }
+        },
+        {
+          "id": "ef-core",
+          "title": "Database Setup (Entity Framework Core)",
+          "definition": "Install EF Core NuGet packages. Create Model classes. Create DbContext. Set connection string in appsettings.json. Add-Migration creates migration. Update-Database applies to DB.",
+          "syntax": "public class AppDbContext : DbContext\n{\n    public AppDbContext(DbContextOptions<AppDbContext> opts) : base(opts) { }\n    public DbSet<User> Users { get; set; }\n}\n\n// appsettings.json\n\"ConnectionStrings\": { \"Default\": \"...\" }",
+          "example": {
+            "code": "public class User\n{\n    public int Id { get; set; }\n    public string Name { get; set; }\n    public string Email { get; set; }\n}\npublic class AppDbContext : DbContext\n{\n    public DbSet<User> Users { get; set; }\n}",
+            "output": "User model and DbContext"
+          }
+        },
+        {
+          "id": "login-signup",
+          "title": "Login & Signup (Without Identity)",
+          "definition": "User Model: Id, Name, Email, Password, Role. Signup: Register view, HTTP GET/POST, save user, check duplicate email, store password (hashed preferred). Login: Login view, check email/password in DB, redirect to Dashboard if valid, show error if invalid. Session: HttpContext.Session.SetString/GetString. Logout clears session. Check session in Controller, redirect to Login if null.",
+          "syntax": "HttpContext.Session.SetString(\"UserEmail\", email);\nstring email = HttpContext.Session.GetString(\"UserEmail\");\nHttpContext.Session.Clear();\n\nif (HttpContext.Session.GetString(\"UserEmail\") == null)\n    return RedirectToAction(\"Login\");",
+          "example": {
+            "code": "// Login POST\n[HttpPost]\npublic IActionResult Login(string email, string password)\n{\n    var user = _context.Users.FirstOrDefault(u => u.Email == email);\n    if (user != null && user.Password == password)\n    {\n        HttpContext.Session.SetString(\"UserEmail\", email);\n        return RedirectToAction(\"Dashboard\");\n    }\n    return View();\n}",
+            "output": "Session-based login"
+          }
+        },
+        {
+          "id": "crud",
+          "title": "CRUD After Login",
+          "definition": "Only logged-in users can access. Create: add new records. Read: list and details. Update: edit existing. Delete: remove records. Protect controllers with session check before each action.",
+          "syntax": "// In each action:\nif (HttpContext.Session.GetString(\"UserEmail\") == null)\n    return RedirectToAction(\"Login\");\n\n// Then perform CRUD\nvar list = _context.Items.ToList();\nreturn View(list);",
+          "example": {
+            "code": "[HttpGet]\npublic IActionResult Create()\n{\n    if (HttpContext.Session.GetString(\"UserEmail\") == null)\n        return RedirectToAction(\"Login\");\n    return View();\n}\n[HttpPost]\npublic IActionResult Create(Item item)\n{\n    _context.Items.Add(item);\n    _context.SaveChanges();\n    return RedirectToAction(\"Index\");\n}",
+            "output": "Protected Create action"
+          }
+        },
+        {
+          "id": "validation",
+          "title": "Validation",
+          "definition": "Required fields: [Required]. Email format: [EmailAddress]. Password confirmation: compare two fields. Use ModelState.IsValid in controller. Display errors with asp-validation-for.",
+          "syntax": "[Required(ErrorMessage = \"Name required\")]\npublic string Name { get; set; }\n[EmailAddress]\npublic string Email { get; set; }\n[Compare(\"Password\")]\npublic string ConfirmPassword { get; set; }\n\nif (ModelState.IsValid) { }",
+          "example": {
+            "code": "public class RegisterModel\n{\n    [Required]\n    [StringLength(100)]\n    public string Name { get; set; }\n    [Required]\n    [EmailAddress]\n    public string Email { get; set; }\n    [Required]\n    [MinLength(6)]\n    public string Password { get; set; }\n}",
+            "output": "Model with validation"
+          }
+        },
+        {
+          "id": "security",
+          "title": "Extra Security",
+          "definition": "Password Hashing: use BCrypt or similar, never store plain text. Try-Catch: wrap DB/risky operations. ModelState.IsValid: always validate before processing. Validate input, use parameterized queries.",
+          "syntax": "// Password hash (BCrypt.Net)\nstring hashed = BCrypt.Net.BCrypt.HashPassword(password);\nbool valid = BCrypt.Net.BCrypt.Verify(password, hashed);\n\ntry { /* risky */ }\ncatch (Exception ex) { /* log */ }\n\nif (ModelState.IsValid) { /* proceed */ }",
+          "example": {
+            "code": "// Signup\nstring hashedPassword = BCrypt.Net.BCrypt.HashPassword(model.Password);\nvar user = new User\n{\n    Email = model.Email,\n    Password = hashedPassword\n};\n_context.Users.Add(user);\n_context.SaveChanges();",
+            "output": "User saved with hashed password"
+          }
+        }
+      ]
+    },
+    "html": {
+      "name": "Learn HTML",
+      "topics": [
+        {
+          "id": "html-intro",
+          "title": "Introduction to HTML",
+          "definition": "HTML (HyperText Markup Language) is the standard language for creating web pages. It uses tags to describe the structure and content of a page. Every HTML document starts with a <!DOCTYPE html> declaration, followed by <html>, <head>, and <body> elements.",
+          "syntax": "<!DOCTYPE html>\n<html>\n  <head>\n    <title>Page Title</title>\n  </head>\n  <body>\n    <h1>Main Heading</h1>\n    <p>Paragraph text.</p>\n  </body>\n</html>",
+          "example": {
+            "code": "<!DOCTYPE html>\n<html>\n  <head>\n    <title>My First Page</title>\n  </head>\n  <body>\n    <h1>Welcome to HTML</h1>\n    <p>This is a simple web page.</p>\n  </body>\n</html>",
+            "output": "A web page with a browser title \"My First Page\", an H1 heading \"Welcome to HTML\" and a paragraph \"This is a simple web page.\""
+          }
+        },
+        {
+          "id": "html-elements",
+          "title": "Elements & Attributes",
+          "definition": "HTML elements are building blocks defined by tags like <p>, <div>, <h1>. Elements can have attributes that provide extra information, such as id, class, href, src, alt. Attributes are written inside the start tag as name=\"value\".",
+          "syntax": "<tagname attribute=\"value\">Content</tagname>\n\n<a href=\"https://example.com\">Visit</a>\n<img src=\"image.jpg\" alt=\"Description\">",
+          "example": {
+            "code": "<h1 id=\"main-title\">Hello</h1>\n<p class=\"lead\">This paragraph has a class attribute.</p>\n<a href=\"https://example.com\" target=\"_blank\">Open Example</a>",
+            "output": "A heading \"Hello\", a styled paragraph, and a link that opens example.com in a new tab."
+          }
+        },
+        {
+          "id": "html-lists-links",
+          "title": "Lists & Links",
+          "definition": "HTML supports ordered lists (<ol>) and unordered lists (<ul>) containing list items (<li>). Links are created with the <a> tag and the href attribute. You can create navigation menus with lists and links.",
+          "syntax": "<ul>\n  <li>Item 1</li>\n  <li>Item 2</li>\n</ul>\n\n<ol>\n  <li>First</li>\n  <li>Second</li>\n</ol>\n\n<a href=\"page.html\">Go to page</a>",
+          "example": {
+            "code": "<nav>\n  <ul>\n    <li><a href=\"index.html\">Home</a></li>\n    <li><a href=\"about.html\">About</a></li>\n    <li><a href=\"contact.html\">Contact</a></li>\n  </ul>\n</nav>",
+            "output": "A simple navigation menu with three links: Home, About, Contact."
+          }
+        },
+        {
+          "id": "html-forms",
+          "title": "Forms & Inputs",
+          "definition": "Forms collect user input and submit it to a server. Use the <form> element with action and method attributes. Inside, use input elements (text, email, password), <textarea>, <select>, and <button>.",
+          "syntax": "<form action=\"/submit\" method=\"post\">\n  <label>Name:</label>\n  <input type=\"text\" name=\"name\">\n  <button type=\"submit\">Send</button>\n</form>",
+          "example": {
+            "code": "<form>\n  <label for=\"email\">Email:</label>\n  <input type=\"email\" id=\"email\" name=\"email\" required>\n\n  <label for=\"msg\">Message:</label>\n  <textarea id=\"msg\" name=\"message\"></textarea>\n\n  <button type=\"submit\">Send</button>\n</form>",
+            "output": "A contact form with email and message fields and a submit button."
+          }
+        },
+        {
+          "id": "html-semantic",
+          "title": "Semantic HTML",
+          "definition": "Semantic elements describe their meaning to both the browser and the developer. Examples: <header>, <nav>, <main>, <section>, <article>, <footer>. They improve accessibility and SEO.",
+          "syntax": "<header>Site header</header>\n<nav>Navigation links</nav>\n<main>\n  <section>\n    <article>Article content</article>\n  </section>\n</main>\n<footer>Footer info</footer>",
+          "example": {
+            "code": "<header>\n  <h1>My Blog</h1>\n</header>\n<nav>\n  <a href=\"#home\">Home</a>\n  <a href=\"#posts\">Posts</a>\n</nav>\n<main>\n  <section id=\"posts\">\n    <article>\n      <h2>First Post</h2>\n      <p>This is my first article.</p>\n    </article>\n  </section>\n</main>\n<footer>\n  <p>&copy; 2026 My Blog</p>\n</footer>",
+            "output": "A basic blog layout using semantic tags for header, navigation, main content, and footer."
+          }
+        }
+      ]
+    },
+    "css": {
+      "name": "Learn CSS",
+      "topics": [
+        {
+          "id": "css-intro",
+          "title": "Introduction to CSS",
+          "definition": "CSS (Cascading Style Sheets) controls the presentation of HTML elements: colors, fonts, layout. CSS rules consist of a selector and a declaration block of property-value pairs.",
+          "syntax": "selector {\n  property: value;\n}\n\nh1 {\n  color: blue;\n  font-size: 32px;\n}",
+          "example": {
+            "code": "<style>\n  body {\n    font-family: Arial, sans-serif;\n    background-color: #0f172a;\n    color: #e5e7eb;\n  }\n  h1 {\n    color: #38bdf8;\n  }\n</style>\n\n<h1>Styled Heading</h1>\n<p>This text uses the global font and dark background.</p>",
+            "output": "A page with a dark background, light text, and a cyan-colored H1 heading."
+          }
+        },
+        {
+          "id": "css-selectors",
+          "title": "Selectors & Colors",
+          "definition": "CSS selectors target elements: type selectors (p), class selectors (.btn), id selectors (#header), and attribute selectors. Colors can be defined with names, hex, rgb(), or hsl().",
+          "syntax": "p { color: #111827; }\n\n.highlight {\n  background-color: yellow;\n}\n\n#main-title {\n  color: rgb(56, 189, 248);\n}",
+          "example": {
+            "code": "<style>\n  p {\n    color: #6b7280;\n  }\n  .highlight {\n    background-color: #facc15;\n  }\n  #main-title {\n    color: #22c55e;\n  }\n</style>\n\n<h1 id=\"main-title\">Welcome</h1>\n<p>This is a normal paragraph.</p>\n<p class=\"highlight\">This paragraph is highlighted.</p>",
+            "output": "Heading \"Welcome\" in green, normal gray paragraph, and a yellow highlighted paragraph."
+          }
+        },
+        {
+          "id": "css-boxmodel",
+          "title": "Box Model",
+          "definition": "Every element is a box with content, padding, border, and margin. The box model affects element size and spacing. The box-sizing property controls whether width includes padding and border.",
+          "syntax": ".card {\n  padding: 16px;\n  border: 1px solid #374151;\n  margin: 16px;\n  box-sizing: border-box;\n}",
+          "example": {
+            "code": "<style>\n  .card {\n    padding: 16px;\n    margin: 16px;\n    border: 1px solid #4b5563;\n    background: #111827;\n    color: #e5e7eb;\n    border-radius: 8px;\n  }\n</style>\n\n<div class=\"card\">\n  <h2>Card Title</h2>\n  <p>This card demonstrates padding, margin, and border.</p>\n</div>",
+            "output": "A dark card with inner spacing (padding), outer space (margin), border, and rounded corners."
+          }
+        },
+        {
+          "id": "css-flexbox",
+          "title": "Flexbox Layout",
+          "definition": "Flexbox is a one-dimensional layout system for aligning items in a row or column. Use display: flex on a container, then properties like justify-content, align-items, and gap.",
+          "syntax": ".row {\n  display: flex;\n  gap: 16px;\n  justify-content: center;\n}\n\n.row > div {\n  flex: 1;\n}",
+          "example": {
+            "code": "<style>\n  .row {\n    display: flex;\n    gap: 16px;\n  }\n  .box {\n    flex: 1;\n    padding: 16px;\n    background: #1f2937;\n    color: white;\n    text-align: center;\n  }\n</style>\n\n<div class=\"row\">\n  <div class=\"box\">Box 1</div>\n  <div class=\"box\">Box 2</div>\n  <div class=\"box\">Box 3</div>\n</div>",
+            "output": "Three equal-width boxes in a row with space between them."
+          }
+        },
+        {
+          "id": "css-typography",
+          "title": "Typography",
+          "definition": "Typography in CSS includes font-family, font-size, font-weight, line-height, and text alignment. Use web-safe fonts or custom fonts via @font-face or Google Fonts.",
+          "syntax": "body {\n  font-family: 'Outfit', system-ui, sans-serif;\n  line-height: 1.6;\n}\n\nh1 {\n  font-size: 2.25rem;\n  font-weight: 700;\n}\n\np {\n  font-size: 1rem;\n  color: #9ca3af;\n}",
+          "example": {
+            "code": "<style>\n  body {\n    font-family: 'Segoe UI', Tahoma, sans-serif;\n  }\n  h1 {\n    font-size: 2rem;\n    font-weight: bold;\n  }\n  p.small {\n    font-size: 0.875rem;\n    color: #6b7280;\n  }\n</style>\n\n<h1>Heading</h1>\n<p class=\"small\">This is smaller helper text.</p>",
+            "output": "A large bold heading with smaller, muted helper text underneath."
+          }
+        }
+      ]
+    },
+    "javascript": {
+      "name": "Learn JavaScript",
+      "topics": [
+        {
+          "id": "js-intro",
+          "title": "Introduction to JavaScript",
+          "definition": "JavaScript is a high-level, interpreted programming language that runs in the browser and on servers (Node.js). It adds interactivity to web pages: dynamic content, forms, events, and more.",
+          "syntax": "<script>\n  console.log('Hello, JavaScript');\n</script>",
+          "example": {
+            "code": "<!DOCTYPE html>\n<html>\n  <body>\n    <h1>JS Demo</h1>\n    <script>\n      console.log('Hello from JS');\n      alert('Welcome to JavaScript');\n    </script>\n  </body>\n</html>",
+            "output": "A page that shows an alert \"Welcome to JavaScript\" and logs \"Hello from JS\" in the browser console."
+          }
+        },
+        {
+          "id": "js-variables",
+          "title": "Variables & Data Types",
+          "definition": "Use let and const to declare variables. JavaScript has primitive types: number, string, boolean, null, undefined, symbol, and bigint. Variables are dynamically typed.",
+          "syntax": "let age = 25;        // number\nconst name = 'Ali';  // string\nlet isActive = true; // boolean",
+          "example": {
+            "code": "<script>\n  let age = 25;\n  const name = 'Ali';\n  let isStudent = true;\n\n  console.log('Name:', name);\n  console.log('Age:', age);\n  console.log('Student:', isStudent);\n</script>",
+            "output": "Console logs: Name: Ali, Age: 25, Student: true"
+          }
+        },
+        {
+          "id": "js-functions",
+          "title": "Functions",
+          "definition": "Functions group reusable code. You can declare them with function keyword or as arrow functions. Functions can take parameters and return values.",
+          "syntax": "function add(a, b) {\n  return a + b;\n}\n\nconst multiply = (x, y) => x * y;",
+          "example": {
+            "code": "<script>\n  function greet(name) {\n    return `Hello, ${name}`;\n  }\n\n  const result = greet('Ali');\n  console.log(result);\n</script>",
+            "output": "Console logs: Hello, Ali"
+          }
+        },
+        {
+          "id": "js-dom",
+          "title": "DOM Manipulation",
+          "definition": "The DOM (Document Object Model) represents the page as a tree of nodes. JavaScript can select elements and change their content, attributes, and styles using methods like getElementById and querySelector.",
+          "syntax": "const title = document.getElementById('title');\ntitle.textContent = 'New Title';",
+          "example": {
+            "code": "<h1 id=\"title\">Old Title</h1>\n<button id=\"btn\">Change</button>\n\n<script>\n  const btn = document.getElementById('btn');\n  const title = document.getElementById('title');\n\n  btn.addEventListener('click', () => {\n    title.textContent = 'Title changed by JS';\n  });\n</script>",
+            "output": "Clicking the button changes the H1 text to \"Title changed by JS\"."
+          }
+        },
+        {
+          "id": "js-events",
+          "title": "Events",
+          "definition": "Events are actions that happen in the browser: clicks, key presses, mouse moves, form submissions. Use addEventListener to listen and respond.",
+          "syntax": "element.addEventListener('click', function() {\n  // handle click\n});",
+          "example": {
+            "code": "<button id=\"counter-btn\">Clicked 0 times</button>\n\n<script>\n  const btn = document.getElementById('counter-btn');\n  let count = 0;\n  btn.addEventListener('click', () => {\n    count++;\n    btn.textContent = `Clicked ${count} times`;\n  });\n</script>",
+            "output": "Each click on the button updates the text: \"Clicked 1 times\", \"Clicked 2 times\", etc."
+          }
+        }
+      ]
+    }
+  }
+}

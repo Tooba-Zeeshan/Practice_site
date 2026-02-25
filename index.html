@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeMaster – Learn C# & .NET</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <button class="back-btn" id="backBtn" aria-label="Back to home" style="display: none;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+        </button>
+        <h1 class="logo" id="logo">CodeMaster</h1>
+        <span class="header-subtitle" id="headerSubtitle"></span>
+    </header>
+
+    <!-- Homepage -->
+    <main class="main">
+        <section class="hero" id="hero">
+            <div class="hero-content">
+                <h2>Learn C#, .NET, and Web</h2>
+                <p>Master C#, ASP.NET Core MVC, and modern web development with HTML, CSS, and JavaScript. Interactive tutorials, quizzes, and hands-on practice.</p>
+                <div class="subject-buttons">
+                    <button class="subject-btn" data-subject="csharp">
+                        <span class="btn-icon">#</span>
+                        <span class="btn-text">Learn C#</span>
+                    </button>
+                    <button class="subject-btn" data-subject="dotnet">
+                        <span class="btn-icon">◇</span>
+                        <span class="btn-text">Learn .NET (ASP.NET Core MVC)</span>
+                    </button>
+                    <button class="subject-btn" data-subject="html">
+                        <span class="btn-icon">&lt;/&gt;</span>
+                        <span class="btn-text">Learn HTML</span>
+                    </button>
+                    <button class="subject-btn" data-subject="css">
+                        <span class="btn-icon">{ }</span>
+                        <span class="btn-text">Learn CSS</span>
+                    </button>
+                    <button class="subject-btn" data-subject="javascript">
+                        <span class="btn-icon">JS</span>
+                        <span class="btn-text">Learn JavaScript</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Subject View (sidebar + content) -->
+        <section class="subject-view" id="subjectView" style="display: none;">
+            <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12h18M3 6h18M3 18h18"/>
+                </svg>
+            </button>
+            <aside class="sidebar" id="sidebar">
+                <h3 class="sidebar-title">Topics</h3>
+                <nav class="topic-list" id="topicList"></nav>
+            </aside>
+            <div class="content-area" id="contentArea">
+                <div class="content-inner" id="contentInner">
+                    <!-- Topic content loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Result Dashboard Modal -->
+        <div class="modal-overlay" id="resultModal" style="display: none;">
+            <div class="modal result-dashboard">
+                <h2>Result Dashboard</h2>
+                <div class="result-card">
+                    <div class="result-item">
+                        <span class="result-label">Topic</span>
+                        <span class="result-value" id="resultTopic"></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">MCQ Score</span>
+                        <span class="result-value" id="resultMcq"></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Practical Score</span>
+                        <span class="result-value" id="resultPractical"></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Total Combined</span>
+                        <span class="result-value" id="resultTotal"></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Percentage</span>
+                        <span class="result-value" id="resultPercent"></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Grade</span>
+                        <span class="result-value result-grade" id="resultGrade"></span>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="resultProgressBar"></div>
+                    </div>
+                    <p class="pass-fail" id="passFail"></p>
+                </div>
+                <button class="modal-btn" id="closeResultBtn">Close</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>CodeMaster – Frontend Learning Application | No Backend | localStorage</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
