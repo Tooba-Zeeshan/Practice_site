@@ -14,7 +14,7 @@ let generatedMcqs = [];
 let generatedPractical = [];
 
 // Gemini API configuration (replace with your key)
-const GEMINI_API_KEY = "AIzaSyC-ykl_KUThHaIotSeKv3bu0As5V1kpqDE"; // TODO: your Gemini API key
+const GEMINI_API_KEY = "AIzaSyCbZFgL71hjECIUUld8zskoVn4FKabMqjI"; // TODO: your Gemini API key
 const GEMINI_MODEL = "gemini-2.5-flash";
 
 async function callGemini(prompt) {
